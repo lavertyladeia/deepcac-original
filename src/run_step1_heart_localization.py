@@ -20,11 +20,11 @@ import argparse
 import matplotlib      
 matplotlib.use('Agg')
 
-import ptvsd
-ptvsd.enable_attach(address = ('localhost', 5678))
-print("Waiting for debugger to attach...")
-ptvsd.wait_for_attach()
-print("Debugger attached")
+# import ptvsd
+# ptvsd.enable_attach(address = ('localhost', 5678))
+# print("Waiting for debugger to attach...")
+# ptvsd.wait_for_attach()
+# print("Debugger attached")
 
 ## ----------------------------------------
 
@@ -154,20 +154,20 @@ print("\n--- STEP 1 - HEART LOCALIZATION ---\n")
 #                                 fill_mask_holes = fill_mask_holes)
 
 # model inference
-run_inference.run_inference(model_output_dir_path = model_output_dir_path,
-                            model_input_dir_path = model_input_dir_path,
-                            model_weights_dir_path = model_weights_dir_path,
-                            crop_size = model_input_size,
-                            export_png = export_png,
-                            model_down_steps = down_steps,
-                            extended = extended,
-                            has_manual_seg = has_manual_seg,
-                            weights_file_name = weights_file_name,
-                            num_gpus = num_gpus)
+# run_inference.run_inference(model_output_dir_path = model_output_dir_path,
+#                             model_input_dir_path = model_input_dir_path,
+#                             model_weights_dir_path = model_weights_dir_path,
+#                             crop_size = model_input_size,
+#                             export_png = export_png,
+#                             model_down_steps = down_steps,
+#                             extended = extended,
+#                             has_manual_seg = has_manual_seg,
+#                             weights_file_name = weights_file_name,
+#                             num_gpus = num_gpus)
 
 # post-processing (upsample)
-#upsample_results.upsample_results(curated_dir_path = curated_dir_path,
-                                  # resampled_dir_path = resampled_dir_path,
-                                  # model_output_dir_path = model_output_dir_path,
-                                  # model_output_nrrd_dir_path = model_output_nrrd_dir_path,
-                                  # num_cores = num_cores)
+upsample_results.upsample_results(curated_dir_path = curated_dir_path,
+                                  resampled_dir_path = resampled_dir_path,
+                                  model_output_dir_path = model_output_dir_path,
+                                  model_output_nrrd_dir_path = model_output_nrrd_dir_path,
+                                  num_cores = num_cores)
