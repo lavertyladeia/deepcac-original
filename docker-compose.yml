@@ -1,0 +1,27 @@
+version: '3.8' # Versão recomendada para usar a sintaxe 'deploy'
+services:
+  deepcac:
+    build: .
+    #image: deepcac-tf-1.14
+    image: deepcac-original
+    container_name: deepcac-original-container
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+    volumes:
+      # Formato: HOST_PATH:CONTAINER_PATH
+      - .:/workspace      
+    
+    # 4. CONFIGURAÇÃO INTERATIVA
+    # Mantém o stdin aberto e aloca um TTY, permitindo que você
+    # use o terminal interativamente após entrar no container.
+    stdin_open: true  # Equivalente a -i
+    tty: true         # Equivalente a -t
+    
+    # Define o comando padrão para entrar no terminal bash após iniciar
+    command: /bin/bash
