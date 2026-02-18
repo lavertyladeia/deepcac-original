@@ -86,7 +86,7 @@ model:
   num_gpus: 1
 
   # name of the file where the weights are stored (under "model_weights_folder_name")
-  weights_file_name: "step1_heartloc_model_weights.hdf5"
+  weights_file_name: "GPU_1.hdf5"
 
   # hyperparameters used during the training of the heart localization model
   training:
